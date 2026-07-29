@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AidPulse AI — Hackathon Presentation Pitch Deck</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #070b14;
+      --bg-card: rgba(15, 23, 42, 0.75);
+      --border: rgba(255, 255, 255, 0.12);
+      --accent-red: #ff3b30;
+      --accent-blue: #0a84ff;
+      --accent-green: #34c759;
+      --accent-amber: #ff9500;
+      --accent-purple: #af52de;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-main);
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    /* Deck Layout */
+    .deck-container {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+      height: calc(100vh - 70px);
+      padding: 40px 60px;
+      overflow-y: auto;
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    .slide.active {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Headers */
+    .slide-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: rgba(10, 132, 255, 0.15);
+      color: var(--accent-blue);
+      border: 1px solid rgba(10, 132, 255, 0.3);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      width: fit-content;
+    }
+
+    h1, h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      line-height: 1.15;
+      background: linear-gradient(135deg, #ffffff 30%, #94a3b8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 16px;
+    }
+
+    p.subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+      max-width: 900px;
+      line-height: 1.6;
+    }
+
+    /* Grid Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      width: 100%;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      width: 100%;
+    }
+
+    /* Glass Cards */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card p, .card ul {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .card ul {
+      padding-left: 20px;
+    }
+
+    .card ul li {
+      margin-bottom: 8px;
+    }
+
+    /* Image Containers */
+    .img-box {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6);
+      background: #000;
+    }
+
+    .img-box img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Controls Bar */
+    .controls-bar {
+      height: 70px;
+      border-top: 1px solid var(--border);
+      background: rgba(7, 11, 20, 0.9);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+    }
+
+    .nav-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+
+    .nav-btn:hover {
+      background: var(--accent-blue);
+      border-color: var(--accent-blue);
+    }
+
+    .slide-counter {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .badge-red { color: var(--accent-red); border-color: rgba(255, 59, 48, 0.3); background: rgba(255, 59, 48, 0.12); }
+    .badge-green { color: var(--accent-green); border-color: rgba(52, 199, 89, 0.3); background: rgba(52, 199, 89, 0.12); }
+    .badge-purple { color: var(--accent-purple); border-color: rgba(175, 82, 222, 0.3); background: rgba(175, 82, 222, 0.12); }
+  </style>
+</head>
+<body>
+
+  <div class="deck-container">
+    
+    <!-- SLIDE 1: COVER SLIDE -->
+    <div class="slide active">
+      <div class="slide-tag badge-red">🚨 International Hackathon Presentation</div>
+      <h1>AidPulse AI — Smart Disaster Response System</h1>
+      <p class="subtitle">
+        Real-Time Location-Aware Evacuation Navigation, Hospital ER Bed Tracking & Gemini AI 7-Day Risk Prediction
+      </p>
+
+      <div class="grid-3" style="margin-top: 20px;">
+        <div class="card">
+          <h3 style="color: var(--accent-red);">🌐 Global Real Road Navigation</h3>
+          <p>OSRM 100% street-snapped routing replacing straight lines with turn-by-turn safe bypass guidance.</p>
+        </div>
+        <div class="card">
+          <h3 style="color: var(--accent-purple);">🔮 Gemini 1.5 Flash Risk AI</h3>
+          <p>Satellite hazard forecasting computing precise 7-day disaster risk scores (LOW, MODERATE, HIGH, CRITICAL).</p>
+        </div>
+        <div class="card">
+          <h3 style="color: var(--accent-blue);">🏥 Live ER/ICU Bed Tracker</h3>
+          <p>OpenStreetMap live hospital node sync, oxygen hours, blood bank units, and 112 direct triage calling.</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 32px; font-size: 0.85rem; color: var(--text-muted);">
+        <b>Live App:</b> <a href="http://localhost:5174/" style="color: var(--accent-blue);">http://localhost:5174/</a> &nbsp;|&nbsp; 
+        <b>GitHub:</b> <a href="https://github.com/shreshth0007/AidPulse-AI" style="color: var(--accent-blue);">shreshth0007/AidPulse-AI</a>
+      </div>
+    </div>
+
+    <!-- SLIDE 2: PROBLEM STATEMENT -->
+    <div class="slide">
+      <div class="slide-tag badge-red">⚠️ Problem Statement</div>
+      <h2>The Chaos of Natural Disasters & Emergency Response Failures</h2>
+      <p class="subtitle">During floods, earthquakes, cyclones, and fires, traditional tools fail citizens when seconds count.</p>
+
+      <div class="grid-2">
+        <div class="card" style="border-left: 4px solid var(--accent-red);">
+          <h3 style="color: var(--accent-red);">🚫 Lack of Real-Time Shelter Awareness</h3>
+          <p>Victims lack visibility into nearest open shelters, available bed capacity, clean water, or power backup status.</p>
+        </div>
+        <div class="card" style="border-left: 4px solid var(--accent-amber);">
+          <h3 style="color: var(--accent-amber);">🚧 Hazardous & Blocked Roads</h3>
+          <p>Standard navigation apps guide evacuees into flooded underpasses, collapsed bridges, or standing water hazards.</p>
+        </div>
+        <div class="card" style="border-left: 4px solid var(--accent-purple);">
+          <h3 style="color: var(--accent-purple);">🏥 Medical Triage Bottlenecks</h3>
+          <p>Emergency rooms overflow while victims cannot locate nearby free ER beds, ICU units, or oxygen reserves.</p>
+        </div>
+        <div class="card" style="border-left: 4px solid var(--accent-blue);">
+          <h3 style="color: var(--accent-blue);">⌛ Delayed Emergency Triage Guidance</h3>
+          <p>Panicked citizens lack immediate access to localized first-aid protocols and personalized AI triage.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3: AIM & OBJECTIVES -->
+    <div class="slide">
+      <div class="slide-tag badge-green">🎯 Project Aim & Objectives</div>
+      <h2>Empowering Humanity with Real-Time Life-Saving Guidance</h2>
+      <p class="subtitle">Our mission is to build a location-aware disaster management ecosystem providing immediate navigation and AI triage.</p>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3 style="color: var(--accent-green);">1. Street-Snapped Safe Navigation</h3>
+          <p>Utilize Open Source Routing Machine (OSRM) to snap driving paths 100% onto actual street roads and bypass flood hazards.</p>
+        </div>
+        <div class="card">
+          <h3 style="color: var(--accent-blue);">2. Real-Time Medical Triage</h3>
+          <p>Provide live ER/ICU bed metrics and 24/7 direct emergency hotline connections for immediate rescue dispatch.</p>
+        </div>
+        <div class="card">
+          <h3 style="color: var(--accent-purple);">3. Gemini Predictive Analytics</h3>
+          <p>Harness Google Gemini 1.5 Flash AI to deliver 7-day satellite disaster risk modeling for any global region.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 4: THE SOLUTION -->
+    <div class="slide">
+      <div class="slide-tag badge-purple">💡 The Proposed Solution</div>
+      <h2>A Unified Emergency Ecosystem Powered by Live Telemetry & AI</h2>
+      <p class="subtitle">AidPulse AI integrates real-world GIS data, live weather metrics, seismic feeds, and Gemini 1.5 Flash AI.</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="color: var(--accent-blue);">🛣️ OSRM Real Road Engine</h3>
+          <p>Replaces straight-line polylines with 100+ snapped road geometry points following actual streets, highways, and rotaries.</p>
+        </div>
+        <div class="card">
+          <h3 style="color: var(--accent-green);">🌧️ Route Weather Telemetry</h3>
+          <p>Compares origin vs. destination weather telemetry (Temperature, Rain mm/h, Wind speed) to warn against flash floods.</p>
+        </div>
+        <div class="card">
+          <h3 style="color: var(--accent-amber);">⚡ Live USGS Seismic Telemetry</h3>
+          <p>Plots real-time global earthquake feeds with exact Richter magnitude, depth, and official USGS event links.</p>
+        </div>
+        <div class="card">
+          <h3 style="color: var(--accent-purple);">🌐 Multi-Language Accessibility</h3>
+          <p>Fully localized in 6 major global languages: English, Spanish, Hindi, French, Bengali, and Arabic.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 5: FEATURE SHOWCASE 1 - MAP & ROUTING -->
+    <div class="slide">
+      <div class="slide-tag badge-blue">🗺️ Feature Showcase 1</div>
+      <h2>Real-Time Evacuation Map with OSRM Street Navigation</h2>
+
+      <div class="grid-2" style="align-items: center;">
+        <div class="img-box">
+          <img src="/docs/screenshots/01_interactive_map.png" alt="Interactive Map View">
+        </div>
+        <div class="card">
+          <h3 style="color: var(--accent-green);">Key Capabilities Demonstrated:</h3>
+          <ul>
+            <li><b>OSRM Road Snapping:</b> Thick green polyline snaps 100% to actual street geometry.</li>
+            <li><b>Dual Typeahead Search:</b> Free-text origin and destination search with Nominatim geocoding.</li>
+            <li><b>Google Maps HD Switcher:</b> Toggle Google Maps HD Roadmap, Hybrid Satellite, or CartoDB tiles.</li>
+            <li><b>USGS Seismic Feed:</b> Live worldwide earthquake markers updated dynamically.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 6: FEATURE SHOWCASE 2 - AI CHATBOT & PREDICTOR -->
+    <div class="slide">
+      <div class="slide-tag badge-purple">🤖 Feature Showcase 2</div>
+      <h2>Gemini 1.5 Flash AI Triage & Global Risk Predictor</h2>
+
+      <div class="grid-2" style="align-items: center;">
+        <div class="img-box">
+          <img src="/docs/screenshots/02_ai_triage_assistant.png" alt="AI Chatbot View">
+        </div>
+        <div class="card">
+          <h3 style="color: var(--accent-purple);">Key Capabilities Demonstrated:</h3>
+          <ul>
+            <li><b>7-Day Satellite Risk Predictor:</b> Computes location risk scores (LOW, MODERATE, HIGH, CRITICAL).</li>
+            <li><b>Gemini 1.5 Flash Triage:</b> Answers disaster queries with actionable emergency guidance.</li>
+            <li><b>Voice & Hands-Free Audio:</b> Speech recognition input and text-to-speech audio readout.</li>
+            <li><b>Embedded Action Cards:</b> Triggers instant SOS dispatch and shelter directions inside chat.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 7: FEATURE SHOWCASE 3 - HOSPITALS & SUPPLIES -->
+    <div class="slide">
+      <div class="slide-tag badge-red">🏥 Feature Showcase 3</div>
+      <h2>Hospital ER Tracker & Emergency Survival Calculator</h2>
+
+      <div class="grid-2">
+        <div>
+          <div class="img-box" style="margin-bottom: 12px;">
+            <img src="/docs/screenshots/03_hospital_finder.png" alt="Hospital Finder">
+          </div>
+          <b style="font-size: 0.9rem; color: var(--accent-blue);">Hospital ER & ICU Bed Tracker</b>
+        </div>
+        <div>
+          <div class="img-box" style="margin-bottom: 12px;">
+            <img src="/docs/screenshots/04_supply_calculator.png" alt="Supply Calculator">
+          </div>
+          <b style="font-size: 0.9rem; color: var(--accent-amber);">Family Survival Supply Calculator</b>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 8: TECH STACK & ROADMAP -->
+    <div class="slide">
+      <div class="slide-tag badge-green">🚀 Tech Stack & Future Vision</div>
+      <h2>Production Architecture & Global Scalability</h2>
+
+      <div class="grid-2" style="margin-top: 10px;">
+        <div class="card">
+          <h3 style="color: var(--accent-blue);">🛠️ Technical Architecture</h3>
+          <ul>
+            <li><b>Frontend:</b> React 18, Vite 8, Leaflet GIS, Lucide Icons.</li>
+            <li><b>AI Engine:</b> Google Gemini 1.5 Flash REST API (`gemini-1.5-flash`).</li>
+            <li><b>GIS & Routing:</b> OSRM Engine, OpenStreetMap Overpass & Nominatim.</li>
+            <li><b>Telemetry:</b> USGS Earthquake Feed & Open-Meteo Weather API.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3 style="color: var(--accent-green);">🌐 Scalability & Future Vision</h3>
+          <ul>
+            <li><b>Lightning Speed:</b> Vite production bundle builds in ~130ms.</li>
+            <li><b>Offline Resilience:</b> Client-side rule engine fallbacks if APIs disconnect.</li>
+            <li><b>IoT Drone Rescue:</b> Integrating payload dispatch telemetry for disaster zones.</li>
+            <li><b>Satellite Mesh Sync:</b> Enabling P2P offline mesh emergency sync.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTROLS BAR -->
+    <div class="controls-bar">
+      <button className="nav-btn" id="prevBtn" onclick="prevSlide()">← Previous</button>
+      <div className="slide-counter" id="slideCounter">Slide 1 of 8</div>
+      <button className="nav-btn" id="nextBtn" onclick="nextSlide()">Next →</button>
+    </div>
+
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideCounter = document.getElementById('slideCounter');
+
+    function showSlide(index) {
+      if (index < 0) index = 0;
+      if (index >= slides.length) index = slides.length - 1;
+
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+
+      currentSlide = index;
+      slideCounter.textContent = `Slide ${currentSlide + 1} of ${slides.length}`;
+    }
+
+    function nextSlide() {
+      showSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+      showSlide(currentSlide - 1);
+    }
+
+    // Keyboard Arrow Navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'Space') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+    });
+  </script>
+</body>
+</html>
