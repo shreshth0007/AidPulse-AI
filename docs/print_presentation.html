@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AidPulse AI — Hackathon 8-Slide Pitch Deck PDF</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0f172a;
+      --bg-card: #1e293b;
+      --border: #334155;
+      --accent-red: #ef4444;
+      --accent-blue: #3b82f6;
+      --accent-green: #22c55e;
+      --accent-amber: #f59e0b;
+      --accent-purple: #a855f7;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-main);
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    @page {
+      size: 11in 8.5in; /* 16:9 Landscape Letter */
+      margin: 0;
+    }
+
+    .slide-page {
+      width: 100vw;
+      height: 100vh;
+      min-height: 100vh;
+      max-height: 100vh;
+      padding: 40px 60px;
+      page-break-after: always;
+      break-after: page;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: #0f172a !important;
+      border-bottom: 2px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide-header {
+      margin-bottom: 20px;
+    }
+
+    .slide-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: rgba(59, 130, 246, 0.2);
+      color: #60a5fa;
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    h1, h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: #ffffff !important;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 8px;
+    }
+
+    p.subtitle {
+      font-size: 1.1rem;
+      color: #cbd5e1 !important;
+      line-height: 1.5;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      width: 100%;
+      margin-top: 16px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      width: 100%;
+      margin-top: 16px;
+    }
+
+    .card {
+      background: #1e293b !important;
+      border: 1px solid #334155 !important;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: #ffffff !important;
+    }
+
+    .card p, .card ul {
+      font-size: 0.92rem;
+      color: #cbd5e1 !important;
+      line-height: 1.5;
+    }
+
+    .card ul {
+      padding-left: 18px;
+    }
+
+    .card ul li {
+      margin-bottom: 6px;
+    }
+
+    .img-box {
+      width: 100%;
+      max-height: 320px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #334155;
+      background: #000;
+    }
+
+    .img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .slide-footer {
+      position: absolute;
+      bottom: 20px;
+      left: 60px;
+      right: 60px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: #64748b;
+      border-top: 1px solid #334155;
+      padding-top: 10px;
+    }
+
+    .badge-red { color: #f87171 !important; border-color: rgba(239, 68, 68, 0.4) !important; background: rgba(239, 68, 68, 0.15) !important; }
+    .badge-green { color: #4ade80 !important; border-color: rgba(34, 197, 94, 0.4) !important; background: rgba(34, 197, 94, 0.15) !important; }
+    .badge-purple { color: #c084fc !important; border-color: rgba(168, 85, 247, 0.4) !important; background: rgba(168, 85, 247, 0.15) !important; }
+  </style>
+</head>
+<body>
+
+  <!-- SLIDE 1: COVER SLIDE -->
+  <section class="slide-page">
+    <div class="slide-header">
+      <div class="slide-tag badge-red">🚨 International Hackathon Pitch Deck</div>
+      <h1>AidPulse AI — Smart Disaster Response System</h1>
+      <p class="subtitle">
+        Real-Time Location-Aware Evacuation Navigation, Hospital ER Bed Tracking & Gemini AI 7-Day Risk Prediction
+      </p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <h3 style="color: #60a5fa !important;">🌐 Global Real Road Navigation</h3>
+        <p>OSRM 100% street-snapped routing replacing straight lines with turn-by-turn safe bypass guidance.</p>
+      </div>
+      <div class="card">
+        <h3 style="color: #c084fc !important;">🔮 Gemini 1.5 Flash Risk AI</h3>
+        <p>Satellite hazard forecasting computing precise 7-day disaster risk scores (LOW, MODERATE, HIGH, CRITICAL).</p>
+      </div>
+      <div class="card">
+        <h3 style="color: #4ade80 !important;">🏥 Live ER/ICU Bed Tracker</h3>
+        <p>OpenStreetMap live hospital node sync, oxygen hours, blood bank units, and 112 direct triage calling.</p>
+      </div>
+    </div>
+
+    <div class="slide-footer">
+      <span>AidPulse AI Project Submission</span>
+      <span>Page 1 of 8</span>
+    </div>
+  </section>
+
+  <!-- SLIDE 2: PROBLEM STATEMENT -->
+  <section class="slide-page">
+    <div class="slide-header">
+      <div class="slide-tag badge-red">⚠️ Problem Statement</div>
+      <h2>The Chaos of Natural Disasters & Emergency Response Failures</h2>
+      <p class="subtitle">During floods, earthquakes, cyclones, and fires, traditional tools fail citizens when seconds count.</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card" style="border-left: 4px solid #ef4444 !important;">
+        <h3 style="color: #f87171 !important;">🚫 Lack of Real-Time Shelter Awareness</h3>
+        <p>Victims lack visibility into nearest open shelters, available bed capacity, clean water, or power backup status.</p>
+      </div>
+      <div class="card" style="border-left: 4px solid #f59e0b !important;">
+        <h3 style="color: #fbbf24 !important;">🚧 Hazardous & Blocked Roads</h3>
+        <p>Standard navigation apps guide evacuees into flooded underpasses, collapsed bridges, or standing water hazards.</p>
+      </div>
+      <div class="card" style="border-left: 4px solid #a855f7 !important;">
+        <h3 style="color: #c084fc !important;">🏥 Medical Triage Bottlenecks</h3>
+        <p>Emergency rooms overflow while victims cannot locate nearby free ER beds, ICU units, or oxygen reserves.</p>
+      </div>
+      <div class="card" style="border-left: 4px solid #3b82f6 !important;">
+        <h3 style="color: #60a5fa !important;">⌛ Delayed Emergency Triage Guidance</h3>
+        <p>Panicked citizens lack immediate access to localized first-aid protocols and personalized AI triage.</p>
+      </div>
+    </div>
+
+    <div class="slide-footer">
+      <span>AidPulse AI Project Submission</span>
+      <span>Page 2 of 8</span>
+    </div>
+  </section>
+
+  <!-- SLIDE 3: AIM & OBJECTIVES -->
+  <section class="slide-page">
+    <div class="slide-header">
+      <div class="slide-tag badge-green">🎯 Project Aim & Objectives</div>
+      <h2>Empowering Humanity with Real-Time Life-Saving Guidance</h2>
+      <p class="subtitle">Our mission is to build a location-aware disaster management ecosystem providing immediate navigation and AI triage.</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card">
+        <h3 style="color: #4ade80 !important;">1. Street-Snapped Safe Navigation</h3>
+        <p>Utilize Open Source Routing Machine (OSRM) to snap driving paths 100% onto actual street roads and bypass flood hazards.</p>
+      </div>
+      <div class="card">
+        <h3 style="color: #60a5fa !important;">2. Real-Time Medical Triage</h3>
+        <p>Provide live ER/ICU bed metrics and 24/7 direct emergency hotline connections for immediate rescue dispatch.</p>
+      </div>
+      <div class="card">
+        <h3 style="color: #c084fc !important;">3. Gemini Predictive Analytics</h3>
+        <p>Harness Google Gemini 1.5 Flash AI to deliver 7-day satellite disaster risk modeling for any global region.</p>
+      </div>
+    </div>
+
+    <div class="slide-footer">
+      <span>AidPulse AI Project Submission</span>
+      <span>Page 3 of 8</span>
+    </div>
+  </section>
+
+  <!-- SLIDE 4: THE SOLUTION -->
+  <section class="slide-page">
+    <div class="slide-header">
+      <div class="slide-tag badge-purple">💡 The Proposed Solution</div>
+      <h2>A Unified Emergency Ecosystem Powered by Live Telemetry & AI</h2>
+      <p class="subtitle">AidPulse AI integrates real-world GIS data, live weather metrics, seismic feeds, and Gemini 1.5 Flash AI.</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="color: #60a5fa !important;">🛣️ OSRM Real Road Engine</h3>
+        <p>Replaces straight-line polylines with 100+ snapped road geometry points following actual streets, highways, and rotaries.</p>
+      </div>
+      <div class="card">
+        <h3 style="color: #4ade80 !important;">🌧️ Route Weather Telemetry</h3>
+        <p>Compares origin vs. destination weather telemetry (Temperature, Rain mm/h, Wind speed) to warn against flash floods.</p>
+      </div>
+      <div class="card">
+        <h3 style="color: #fbbf24 !important;">⚡ Live USGS Seismic Telemetry</h3>
+        <p>Plots real-time global earthquake feeds with exact Richter magnitude, depth, and official USGS event links.</p>
+      </div>
+      <div class="card">
+        <h3 style="color: #c084fc !important;">🌐 Multi-Language Accessibility</h3>
+        <p>Fully localized in 6 major global languages: English, Spanish, Hindi, French, Bengali, and Arabic.</p>
+      </div>
+    </div>
+
+    <div class="slide-footer">
+      <span>AidPulse AI Project Submission</span>
+      <span>Page 4 of 8</span>
+    </div>
+  </section>
+
+  <!-- SLIDE 5: FEATURE SHOWCASE 1 - MAP & ROUTING -->
+  <section class="slide-page">
+    <div class="slide-header">
+      <div class="slide-tag badge-green">🗺️ Feature Showcase 1</div>
+      <h2>Real-Time Evacuation Map with OSRM Street Navigation</h2>
+    </div>
+
+    <div class="grid-2" style="align-items: center;">
+      <div class="img-box">
+        <img src="/docs/screenshots/01_interactive_map.png" alt="Interactive Map View">
+      </div>
+      <div class="card">
+        <h3 style="color: #4ade80 !important;">Key Capabilities Demonstrated:</h3>
+        <ul>
+          <li><b>OSRM Road Snapping:</b> Thick green polyline snaps 100% to actual street geometry.</li>
+          <li><b>Dual Typeahead Search:</b> Free-text origin and destination search with Nominatim geocoding.</li>
+          <li><b>Google Maps HD Switcher:</b> Toggle Google Maps HD Roadmap, Hybrid Satellite, or CartoDB tiles.</li>
+          <li><b>USGS Seismic Feed:</b> Live worldwide earthquake markers updated dynamically.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide-footer">
+      <span>AidPulse AI Project Submission</span>
+      <span>Page 5 of 8</span>
+    </div>
+  </section>
+
+  <!-- SLIDE 6: FEATURE SHOWCASE 2 - AI CHATBOT & PREDICTOR -->
+  <section class="slide-page">
+    <div class="slide-header">
+      <div class="slide-tag badge-purple">🤖 Feature Showcase 2</div>
+      <h2>Gemini 1.5 Flash AI Triage & Global Risk Predictor</h2>
+    </div>
+
+    <div class="grid-2" style="align-items: center;">
+      <div class="img-box">
+        <img src="/docs/screenshots/02_ai_triage_assistant.png" alt="AI Chatbot View">
+      </div>
+      <div class="card">
+        <h3 style="color: #c084fc !important;">Key Capabilities Demonstrated:</h3>
+        <ul>
+          <li><b>7-Day Satellite Risk Predictor:</b> Computes location risk scores (LOW, MODERATE, HIGH, CRITICAL).</li>
+          <li><b>Gemini 1.5 Flash Triage:</b> Answers disaster queries with actionable emergency guidance.</li>
+          <li><b>Voice & Hands-Free Audio:</b> Speech recognition input and text-to-speech audio readout.</li>
+          <li><b>Embedded Action Cards:</b> Triggers instant SOS dispatch and shelter directions inside chat.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide-footer">
+      <span>AidPulse AI Project Submission</span>
+      <span>Page 6 of 8</span>
+    </div>
+  </section>
+
+  <!-- SLIDE 7: FEATURE SHOWCASE 3 - HOSPITALS & SUPPLIES -->
+  <section class="slide-page">
+    <div class="slide-header">
+      <div class="slide-tag badge-red">🏥 Feature Showcase 3</div>
+      <h2>Hospital ER Tracker & Emergency Survival Calculator</h2>
+    </div>
+
+    <div class="grid-2">
+      <div>
+        <div class="img-box" style="margin-bottom: 8px;">
+          <img src="/docs/screenshots/03_hospital_finder.png" alt="Hospital Finder">
+        </div>
+        <b style="font-size: 0.85rem; color: #60a5fa;">Hospital ER & ICU Bed Tracker</b>
+      </div>
+      <div>
+        <div class="img-box" style="margin-bottom: 8px;">
+          <img src="/docs/screenshots/04_supply_calculator.png" alt="Supply Calculator">
+        </div>
+        <b style="font-size: 0.85rem; color: #fbbf24;">Family Survival Supply Calculator</b>
+      </div>
+    </div>
+
+    <div class="slide-footer">
+      <span>AidPulse AI Project Submission</span>
+      <span>Page 7 of 8</span>
+    </div>
+  </section>
+
+  <!-- SLIDE 8: TECH STACK & ROADMAP -->
+  <section class="slide-page">
+    <div class="slide-header">
+      <div class="slide-tag badge-green">🚀 Tech Stack & Future Vision</div>
+      <h2>Production Architecture & Global Scalability</h2>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3 style="color: #60a5fa !important;">🛠️ Technical Architecture</h3>
+        <ul>
+          <li><b>Frontend:</b> React 18, Vite 8, Leaflet GIS, Lucide Icons.</li>
+          <li><b>AI Engine:</b> Google Gemini 1.5 Flash REST API (`gemini-1.5-flash`).</li>
+          <li><b>GIS & Routing:</b> OSRM Engine, OpenStreetMap Overpass & Nominatim.</li>
+          <li><b>Telemetry:</b> USGS Earthquake Feed & Open-Meteo Weather API.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3 style="color: #4ade80 !important;">🌐 Scalability & Future Vision</h3>
+        <ul>
+          <li><b>Lightning Speed:</b> Vite production bundle builds in ~130ms.</li>
+          <li><b>Offline Resilience:</b> Client-side rule engine fallbacks if APIs disconnect.</li>
+          <li><b>IoT Drone Rescue:</b> Integrating payload dispatch telemetry for disaster zones.</li>
+          <li><b>Satellite Mesh Sync:</b> Enabling P2P offline mesh emergency sync.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="slide-footer">
+      <span>AidPulse AI Project Submission</span>
+      <span>Page 8 of 8</span>
+    </div>
+  </section>
+
+</body>
+</html>
