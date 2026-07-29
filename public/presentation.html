@@ -213,6 +213,34 @@
     .badge-red { color: var(--accent-red); border-color: rgba(255, 59, 48, 0.3); background: rgba(255, 59, 48, 0.12); }
     .badge-green { color: var(--accent-green); border-color: rgba(52, 199, 89, 0.3); background: rgba(52, 199, 89, 0.12); }
     .badge-purple { color: var(--accent-purple); border-color: rgba(175, 82, 222, 0.3); background: rgba(175, 82, 222, 0.12); }
+
+    @media print {
+      @page {
+        size: landscape;
+        margin: 0;
+      }
+      body {
+        overflow: visible !important;
+        height: auto !important;
+        background: #070b14 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .deck-container {
+        height: auto !important;
+      }
+      .controls-bar {
+        display: none !important;
+      }
+      .slide {
+        display: flex !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        height: 100vh !important;
+        padding: 40px 60px !important;
+        box-sizing: border-box !important;
+      }
+    }
   </style>
 </head>
 <body>
