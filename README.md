@@ -4,6 +4,18 @@
 
 ---
 
+## 🖼️ Application Screenshots & Visual Showcase
+
+| Interactive GIS Evacuation Map & OSRM Road Snapping | Gemini 1.5 Flash AI Emergency Assistant |
+| :---: | :---: |
+| ![Interactive Map](docs/screenshots/01_interactive_map.png) | ![AI Triage Assistant](docs/screenshots/02_ai_triage_assistant.png) |
+
+| Hospital ER & ICU Bed Tracker | Emergency Survival Supply Kit Calculator |
+| :---: | :---: |
+| ![Hospital Bed Tracker](docs/screenshots/03_hospital_finder.png) | ![Supply Calculator](docs/screenshots/04_supply_calculator.png) |
+
+---
+
 ## 🌟 Core Features & Capabilities
 
 - 🏠 **Location-Based Shelter & Safe Zone Finder**: Dynamically ranks nearby regional emergency shelters and OpenStreetMap community refuges by real-time capacity and distance.
@@ -76,7 +88,7 @@ flowchart TD
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/YOUR_GITHUB_USERNAME/AidPulse-AI.git
+   git clone https://github.com/shreshth0007/AidPulse-AI.git
    cd AidPulse-AI
    ```
 
